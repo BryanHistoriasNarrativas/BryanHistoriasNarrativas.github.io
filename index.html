@@ -14,7 +14,7 @@
             background-color: #f4f4f9;
             color: #333;
         }
-        
+
         h1, h2, h3 {
             text-align: center;
             color: #2c3e50;
@@ -96,6 +96,24 @@
         input[type="submit"]:hover {
             background-color: #3498db;
         }
+
+        /* Estilos para la sección de reseñas */
+        .review-list {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        
+        .review {
+            margin-bottom: 10px;
+            padding: 5px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .review-form {
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -103,54 +121,83 @@
 <section id="inicio">
     <h1>Bienvenido a Bryan Historias Narrativas</h1>
     <img src="Logo_1c44b87a.jpg" alt="Imagen destacada">
-    <p>Explora un universo de imaginación y emociones a través de mis relatos. Desde aventuras épicas hasta narrativas introspectivas, cada historia refleja un viaje único. Sumérgete en la saga de "Bryan y Efrain: Sombras de Tinta", descubre los misterios de "Un Viaje Sin Regreso" y más. Este espacio está dedicado a los amantes de la lectura que buscan perderse en tramas cautivadoras y personajes memorables. ¡Acompáñame en esta travesía literaria!.</p>
+    <p>Explora un universo de imaginación y emociones a través de mis relatos...</p>
 </section>
 
 <section id="libros">
     <h2>Mis Libros</h2>
 
+    <!-- Libro 1 -->
     <article>
         <h3>Bryan y Efrain: Sombras de Tinta</h3>
         <a href="Bryan y Efrain Sombras de Tinta Version Extendida.pdf" target="_blank" class="book-link">
             <img src="Portada libro1_5c53d3b4.jpg" alt="Portada de Bryan y Efrain: Sombras de Tinta">
         </a>
-        <p><strong>Sinopsis:</strong> Sinopsis: Sumérgete en el oscuro y retorcido mundo de Bryan Cano Studios con "Bryan y Efrain: Sombras de Tinta". En esta saga épica, Efraín, un antiguo animador, se ve arrastrado nuevamente a los horrores del estudio que una vez consideró su hogar.</p>
+        <p><strong>Sinopsis:</strong> Sumérgete en el oscuro y retorcido mundo de Bryan Cano Studios...</p>
+        
+        <!-- Sección de reseñas -->
+        <h4>Reseñas:</h4>
+        <div class="review-list" id="review-list-1">
+            <!-- Aquí se mostrarán las reseñas -->
+        </div>
+        <form class="review-form" onsubmit="addReview(event, 'review-list-1')">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required><br>
+            <label for="comentario">Reseña:</label><br>
+            <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
+            <input type="submit" value="Enviar Reseña">
+        </form>
     </article>
 
+    <!-- Libro 2 -->
     <article>
         <h3>Un Viaje Sin Regreso</h3>
         <a href="Un Viaje Sin Regreso.pdf" target="_blank" class="book-link">
             <img src="Portada libro2_df70fe2f.jpg" alt="Portada de Un Viaje Sin Regreso">
         </a>
-        <p><strong>Sinopsis:</strong> Sinopsis: Ethan se embarca en un misterioso viaje hacia lo desconocido, guiado por el enigmático James, en busca de respuestas y redención. A través de paisajes surrealistas y desafíos que exploran los límites de su mente y espíritu, Ethan enfrenta las sombras de su pasado en un intento por reescribir su historia. ¿Podrá hallar la fuerza para un nuevo futuro sin perderse en el proceso? Una historia de autodescubrimiento y transformación que nos recuerda el poder de aceptar el pasado y forjar un horizonte propio.</p>
+        <p><strong>Sinopsis:</strong> Ethan se embarca en un misterioso viaje hacia lo desconocido...</p>
+
+        <!-- Sección de reseñas -->
+        <h4>Reseñas:</h4>
+        <div class="review-list" id="review-list-2">
+            <!-- Aquí se mostrarán las reseñas -->
+        </div>
+        <form class="review-form" onsubmit="addReview(event, 'review-list-2')">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required><br>
+            <label for="comentario">Reseña:</label><br>
+            <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
+            <input type="submit" value="Enviar Reseña">
+        </form>
     </article>
 
+    <!-- Libro 3 -->
     <article>
         <h3>El Susurro de las Almas</h3>
         <a href="El Susurro de las Almas.pdf" target="_blank" class="book-link">
             <img src="Portada libro3_71a86946.jpg" alt="Portada de El Susurro de las Almas">
         </a>
-        <p><strong>Sinopsis:</strong> Sinopsis: El Susurro de las Almas es una novela que explora los rincones más oscuros de la mente humana a través de una historia intensa de misterio y redención. Alexander, el protagonista, vive en aparente tranquilidad hasta que descubre la desaparición de sus dos amigos cercanos, cuyas almas parecen clamar por justicia. Enfrentando fragmentos de un trágico pasado y voces inquietantes, Alexander se embarca en una búsqueda por la verdad que lo lleva a confrontar sus propios traumas. Este viaje emocional combina suspenso y psicología, invitando al lector a encontrar la luz en medio de la oscuridad.</p>
+        <p><strong>Sinopsis:</strong> "El Susurro de las Almas" es una novela que explora los rincones más oscuros de la mente humana...</p>
+
+        <!-- Sección de reseñas -->
+        <h4>Reseñas:</h4>
+        <div class="review-list" id="review-list-3">
+            <!-- Aquí se mostrarán las reseñas -->
+        </div>
+        <form class="review-form" onsubmit="addReview(event, 'review-list-3')">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required><br>
+            <label for="comentario">Reseña:</label><br>
+            <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
+            <input type="submit" value="Enviar Reseña">
+        </form>
     </article>
 </section>
 
 <section id="sobre-el-autor">
     <h2>Sobre el Autor</h2>
     <img src="bdf4d3fe1f9a17136319df951fe9b3e0.jpg" alt="Mi foto">
-    <p>Soy Bryan Cano, un apasionado escritor con el propósito de explorar las profundidades de la experiencia humana a través de mis obras. Mis libros buscan inspirar y conectar con los lectores, invitándolos a reflexionar sobre su propia vida.</p>
-</section>
-
-<section id="blog">
-    <h2>Blog</h2>
-    <article>
-        <h3>Última Actualización</h3>
-        <p>31-10-24 - Anuncio sobre el lanzamiento de mi nuevo libro "Las Sonrisas Detrás del Escenario":
-
-            
-Descubre la desgarradora historia de una familia que, tras una fachada de risas y unión, esconde las sombras del abuso y los celos. "Las Sonrisas Detrás del Escenario" sigue el viaje de un niño que crece en un hogar donde las sonrisas se transforman en gritos y el amor se ve empañado por el miedo.
-
-A través de una narrativa conmovedora, Bryan Cano nos invita a acompañar al hijo mayor en su camino hacia la sanación, mientras aprende a dejar atrás el dolor y construir una vida llena de luz, amor y paz interior. Una historia de resiliencia y esperanza que revela el poder de superar el pasado y sanar.</p>
-    </article>
+    <p>Soy Bryan Cano, un apasionado escritor con el propósito de explorar las profundidades...</p>
 </section>
 
 <section id="contacto">
@@ -173,5 +220,15 @@ A través de una narrativa conmovedora, Bryan Cano nos invita a acompañar al hi
     <p>bryanhistoriasnarrativas@gmail.com</p>
 </section>
 
-</body>
-</html>
+<script>
+    function addReview(event, reviewListId) {
+        event.preventDefault(); // Evita que el formulario recargue la página
+
+        // Obtén los valores del formulario
+        const nombre = event.target.nombre.value;
+        const comentario = event.target.comentario.value;
+
+        // Crea un nuevo elemento de reseña
+        const reviewElement = document.createElement('div');
+        reviewElement.classList.add('review');
+        reviewElement.innerHTML = `<strong>${nombre}:</
