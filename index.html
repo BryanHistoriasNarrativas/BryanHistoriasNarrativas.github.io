@@ -65,17 +65,7 @@
             font-size: 1.1em;
             color: #666;
         }
-
-        /* Formulario de contacto */
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #fff;
-        }
-
+        
         /* Redes Sociales */
         .small-image {
             width: 150px;
@@ -104,24 +94,6 @@
 
         input[type="submit"]:hover {
             background-color: #3498db;
-        }
-
-        /* Estilos para la sección de reseñas */
-        .review-list {
-            margin-top: 10px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            background-color: #f9f9f9;
-        }
-        
-        .review {
-            margin-bottom: 10px;
-            padding: 5px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .review-form {
-            margin-top: 10px;
         }
 
         /* Estilos para la sección del blog */
@@ -174,71 +146,6 @@
             <img src="Libro 1_cd85dede.jpg" alt="Portada de Bryan y Efrain: Sombras de Tinta">
         </a>
         <p><strong>Sinopsis:</strong> Sumérgete en el oscuro y retorcido mundo de Bryan Cano Studios con "Bryan y Efrain: Sombras de Tinta". En esta saga épica, Efraín, un antiguo animador, se ve arrastrado nuevamente a los horrores del estudio que una vez consideró su hogar.</p>
-        
-<!-- Sección de reseñas -->
-<article>
-    <h4>Reseñas:</h4>
-<div class="review-list" id="review-list-1">
-    <!-- Aquí se mostrarán las reseñas -->
-</div>
-<form class="review-form" onsubmit="enviarReseña(event)">
-    <label for="nombre">Nombre:</label><br>
-    <input type="text" id="nombre" name="nombre" required><br>
-    <label for="comentario">Reseña:</label><br>
-    <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
-    <input type="submit" value="Enviar Reseña">
-</form>
-
-<script>
-    function enviarReseña(event) {
-        event.preventDefault();
-
-        const nombre = document.getElementById('nombre').value;
-        const comentario = document.getElementById('comentario').value;
-
-        // Enviar los datos al archivo PHP usando AJAX
-        fetch('guardar-reseña.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `nombre=${encodeURIComponent(nombre)}&comentario=${encodeURIComponent(comentario)}`
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data);
-            cargarReseñas(); // Recargar las reseñas después de enviar
-            document.getElementById('nombre').value = '';
-            document.getElementById('comentario').value = '';
-        });
-    }
-
-    function cargarReseñas() {
-        fetch('reseñas.txt')
-            .then(response => response.text())
-            .then(data => {
-                const reviewList = document.getElementById('review-list-1');
-                reviewList.innerHTML = '';
-
-                // Cada línea en el archivo representa una reseña
-                const reseñas = data.trim().split('\n');
-                reseñas.forEach(linea => {
-                    const reseña = JSON.parse(linea);
-                    const reseñaHTML = `
-                        <div class="review">
-                            <h5>${reseña.nombre}</h5>
-                            <p>${reseña.comentario}</p>
-                            <small>${reseña.fecha}</small>
-                        </div>
-                    `;
-                    reviewList.innerHTML += reseñaHTML;
-                });
-            });
-    }
-    
-    // Cargar las reseñas al abrir la página
-    document.addEventListener('DOMContentLoaded', cargarReseñas);
-</script>
     
     <!-- Libro 2 -->
     <article>
@@ -248,71 +155,6 @@
         </a>
         <p><strong>Sinopsis:</strong> Ethan se embarca en un misterioso viaje hacia lo desconocido, guiado por el enigmático James, en busca de respuestas y redención. A través de paisajes surrealistas y desafíos que exploran los límites de su mente y espíritu, Ethan enfrenta las sombras de su pasado en un intento por reescribir su historia. ¿Podrá hallar la fuerza para un nuevo futuro sin perderse en el proceso? Una historia de autodescubrimiento y transformación que nos recuerda el poder de aceptar el pasado y forjar un horizonte propio.</p>
 
-     <!-- Sección de reseñas -->
-<article>
-   <h4>Reseñas:</h4>
-<div class="review-list" id="review-list-1">
-    <!-- Aquí se mostrarán las reseñas -->
-</div>
-<form class="review-form" onsubmit="enviarReseña(event)">
-    <label for="nombre">Nombre:</label><br>
-    <input type="text" id="nombre" name="nombre" required><br>
-    <label for="comentario">Reseña:</label><br>
-    <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
-    <input type="submit" value="Enviar Reseña">
-</form>
-
-<script>
-    function enviarReseña(event) {
-        event.preventDefault();
-
-        const nombre = document.getElementById('nombre').value;
-        const comentario = document.getElementById('comentario').value;
-
-        // Enviar los datos al archivo PHP usando AJAX
-        fetch('guardar-reseña.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `nombre=${encodeURIComponent(nombre)}&comentario=${encodeURIComponent(comentario)}`
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data);
-            cargarReseñas(); // Recargar las reseñas después de enviar
-            document.getElementById('nombre').value = '';
-            document.getElementById('comentario').value = '';
-        });
-    }
-
-    function cargarReseñas() {
-        fetch('reseñas.txt')
-            .then(response => response.text())
-            .then(data => {
-                const reviewList = document.getElementById('review-list-1');
-                reviewList.innerHTML = '';
-
-                // Cada línea en el archivo representa una reseña
-                const reseñas = data.trim().split('\n');
-                reseñas.forEach(linea => {
-                    const reseña = JSON.parse(linea);
-                    const reseñaHTML = `
-                        <div class="review">
-                            <h5>${reseña.nombre}</h5>
-                            <p>${reseña.comentario}</p>
-                            <small>${reseña.fecha}</small>
-                        </div>
-                    `;
-                    reviewList.innerHTML += reseñaHTML;
-                });
-            });
-    }
-
-    // Cargar las reseñas al abrir la página
-    document.addEventListener('DOMContentLoaded', cargarReseñas);
-</script>
-
     <!-- Libro 3 -->
     <article>
         <h3>El Susurro de las Almas</h3>
@@ -320,71 +162,6 @@
             <img src="Libro 3_5ae4c4b5.jpg" alt="Portada de El Susurro de las Almas">
         </a>
         <p><strong>Sinopsis:</strong> El Susurro de las Almas es una novela que explora los rincones más oscuros de la mente humana a través de una historia intensa de misterio y redención. Alexander, el protagonista, vive en aparente tranquilidad hasta que descubre la desaparición de sus dos amigos cercanos, cuyas almas parecen clamar por justicia. Enfrentando fragmentos de un trágico pasado y voces inquietantes, Alexander se embarca en una búsqueda por la verdad que lo lleva a confrontar sus propios traumas. Este viaje emocional combina suspenso y psicología, invitando al lector a encontrar la luz en medio de la oscuridad.</p>
-
-        <!-- Sección de reseñas -->
-<article>
-    <h4>Reseñas:</h4>
-<div class="review-list" id="review-list-1">
-    <!-- Aquí se mostrarán las reseñas -->
-</div>
-<form class="review-form" onsubmit="enviarReseña(event)">
-    <label for="nombre">Nombre:</label><br>
-    <input type="text" id="nombre" name="nombre" required><br>
-    <label for="comentario">Reseña:</label><br>
-    <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
-    <input type="submit" value="Enviar Reseña">
-</form>
-
-<script>
-    function enviarReseña(event) {
-        event.preventDefault();
-
-        const nombre = document.getElementById('nombre').value;
-        const comentario = document.getElementById('comentario').value;
-
-        // Enviar los datos al archivo PHP usando AJAX
-        fetch('guardar-reseña.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `nombre=${encodeURIComponent(nombre)}&comentario=${encodeURIComponent(comentario)}`
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data);
-            cargarReseñas(); // Recargar las reseñas después de enviar
-            document.getElementById('nombre').value = '';
-            document.getElementById('comentario').value = '';
-        });
-    }
-
-    function cargarReseñas() {
-        fetch('reseñas.txt')
-            .then(response => response.text())
-            .then(data => {
-                const reviewList = document.getElementById('review-list-1');
-                reviewList.innerHTML = '';
-
-                // Cada línea en el archivo representa una reseña
-                const reseñas = data.trim().split('\n');
-                reseñas.forEach(linea => {
-                    const reseña = JSON.parse(linea);
-                    const reseñaHTML = `
-                        <div class="review">
-                            <h5>${reseña.nombre}</h5>
-                            <p>${reseña.comentario}</p>
-                            <small>${reseña.fecha}</small>
-                        </div>
-                    `;
-                    reviewList.innerHTML += reseñaHTML;
-                });
-            });
-    }
-
-    // Cargar las reseñas al abrir la página
-    document.addEventListener('DOMContentLoaded', cargarReseñas);
-</script>
 
 <!-- Sección de blog -->
 <section id="blog">
@@ -402,21 +179,6 @@ A través de una narrativa conmovedora, Bryan Cano nos invita a acompañar al hi
     <h2>Sobre el Autor</h2>
     <img src="bdf4d3fe1f9a17136319df951fe9b3e0.jpg" alt="Mi foto">
     <p>Soy Bryan Cano, un apasionado escritor con el propósito de explorar las profundidades de la experiencia humana a través de mis obras. Mis libros buscan inspirar y conectar con los lectores, invitándolos a reflexionar sobre su propia vida.</p>
-</section>
-
-<section id="contacto">
-    <h2>Contacto</h2>
-    <p>Si deseas ponerte en contacto conmigo, puedes utilizar el siguiente formulario:</p>
-
-    <form action="enviar-formulario.php" method="post">
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre" required><br>
-        <label for="email">Correo Electrónico:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <label for="mensaje">Mensaje:</label><br>
-        <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br>
-        <input type="submit" value="Enviar">
-    </form>
 </section>
 
    <section id="correo">
