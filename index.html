@@ -175,19 +175,44 @@
         </a>
         <p><strong>Sinopsis:</strong> Sumérgete en el oscuro y retorcido mundo de Bryan Cano Studios con "Bryan y Efrain: Sombras de Tinta". En esta saga épica, Efraín, un antiguo animador, se ve arrastrado nuevamente a los horrores del estudio que una vez consideró su hogar.</p>
         
-        <!-- Sección de reseñas -->
-        <h4>Reseñas:</h4>
-        <div class="review-list" id="review-list-1">
-            <!-- Aquí se mostrarán las reseñas -->
-        </div>
-        <form class="review-form" onsubmit="addReview(event, 'review-list-1')">
-            <label for="nombre">Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" required><br>
-            <label for="comentario">Reseña:</label><br>
-            <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
-            <input type="submit" value="Enviar Reseña">
-        </form>
-    </article>
+<!-- Sección de reseñas -->
+<article>
+    <h4>Reseñas:</h4>
+    <div class="review-list" id="review-list-1">
+        <!-- Aquí se mostrarán las reseñas -->
+    </div>
+    <form class="review-form" onsubmit="addReview(event, 'review-list-1')">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br>
+        <label for="comentario">Reseña:</label><br>
+        <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
+        <input type="submit" value="Enviar Reseña">
+    </form>
+</article>
+
+<script>
+function addReview(event, reviewListId) {
+    event.preventDefault(); // Evita que la página se recargue al enviar el formulario
+
+    // Obtén los valores ingresados en el formulario
+    const nombre = document.getElementById('nombre').value;
+    const comentario = document.getElementById('comentario').value;
+
+    // Crea un nuevo elemento div para la reseña
+    const reviewDiv = document.createElement('div');
+    reviewDiv.classList.add('review-item');
+
+    // Añade el contenido de la reseña al div
+    reviewDiv.innerHTML = `<strong>${nombre}:</strong> <p>${comentario}</p>`;
+
+    // Inserta el nuevo div en la lista de reseñas
+    document.getElementById(reviewListId).appendChild(reviewDiv);
+
+    // Limpia los campos del formulario
+    document.getElementById('nombre').value = '';
+    document.getElementById('comentario').value = '';
+}
+</script>
 
     <!-- Libro 2 -->
     <article>
@@ -197,19 +222,44 @@
         </a>
         <p><strong>Sinopsis:</strong> Ethan se embarca en un misterioso viaje hacia lo desconocido, guiado por el enigmático James, en busca de respuestas y redención. A través de paisajes surrealistas y desafíos que exploran los límites de su mente y espíritu, Ethan enfrenta las sombras de su pasado en un intento por reescribir su historia. ¿Podrá hallar la fuerza para un nuevo futuro sin perderse en el proceso? Una historia de autodescubrimiento y transformación que nos recuerda el poder de aceptar el pasado y forjar un horizonte propio.</p>
 
-        <!-- Sección de reseñas -->
-        <h4>Reseñas:</h4>
-        <div class="review-list" id="review-list-2">
-            <!-- Aquí se mostrarán las reseñas -->
-        </div>
-        <form class="review-form" onsubmit="addReview(event, 'review-list-2')">
-            <label for="nombre">Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" required><br>
-            <label for="comentario">Reseña:</label><br>
-            <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
-            <input type="submit" value="Enviar Reseña">
-        </form>
-    </article>
+     <!-- Sección de reseñas -->
+<article>
+    <h4>Reseñas:</h4>
+    <div class="review-list" id="review-list-1">
+        <!-- Aquí se mostrarán las reseñas -->
+    </div>
+    <form class="review-form" onsubmit="addReview(event, 'review-list-1')">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br>
+        <label for="comentario">Reseña:</label><br>
+        <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
+        <input type="submit" value="Enviar Reseña">
+    </form>
+</article>
+
+<script>
+function addReview(event, reviewListId) {
+    event.preventDefault(); // Evita que la página se recargue al enviar el formulario
+
+    // Obtén los valores ingresados en el formulario
+    const nombre = document.getElementById('nombre').value;
+    const comentario = document.getElementById('comentario').value;
+
+    // Crea un nuevo elemento div para la reseña
+    const reviewDiv = document.createElement('div');
+    reviewDiv.classList.add('review-item');
+
+    // Añade el contenido de la reseña al div
+    reviewDiv.innerHTML = `<strong>${nombre}:</strong> <p>${comentario}</p>`;
+
+    // Inserta el nuevo div en la lista de reseñas
+    document.getElementById(reviewListId).appendChild(reviewDiv);
+
+    // Limpia los campos del formulario
+    document.getElementById('nombre').value = '';
+    document.getElementById('comentario').value = '';
+}
+</script>
 
     <!-- Libro 3 -->
     <article>
@@ -220,19 +270,43 @@
         <p><strong>Sinopsis:</strong> El Susurro de las Almas es una novela que explora los rincones más oscuros de la mente humana a través de una historia intensa de misterio y redención. Alexander, el protagonista, vive en aparente tranquilidad hasta que descubre la desaparición de sus dos amigos cercanos, cuyas almas parecen clamar por justicia. Enfrentando fragmentos de un trágico pasado y voces inquietantes, Alexander se embarca en una búsqueda por la verdad que lo lleva a confrontar sus propios traumas. Este viaje emocional combina suspenso y psicología, invitando al lector a encontrar la luz en medio de la oscuridad.</p>
 
         <!-- Sección de reseñas -->
-        <h4>Reseñas:</h4>
-        <div class="review-list" id="review-list-3">
-            <!-- Aquí se mostrarán las reseñas -->
-        </div>
-        <form class="review-form" onsubmit="addReview(event, 'review-list-3')">
-            <label for="nombre">Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" required><br>
-            <label for="comentario">Reseña:</label><br>
-            <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
-            <input type="submit" value="Enviar Reseña">
-        </form>
-    </article>
-</section>
+<article>
+    <h4>Reseñas:</h4>
+    <div class="review-list" id="review-list-1">
+        <!-- Aquí se mostrarán las reseñas -->
+    </div>
+    <form class="review-form" onsubmit="addReview(event, 'review-list-1')">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br>
+        <label for="comentario">Reseña:</label><br>
+        <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
+        <input type="submit" value="Enviar Reseña">
+    </form>
+</article>
+
+<script>
+function addReview(event, reviewListId) {
+    event.preventDefault(); // Evita que la página se recargue al enviar el formulario
+
+    // Obtén los valores ingresados en el formulario
+    const nombre = document.getElementById('nombre').value;
+    const comentario = document.getElementById('comentario').value;
+
+    // Crea un nuevo elemento div para la reseña
+    const reviewDiv = document.createElement('div');
+    reviewDiv.classList.add('review-item');
+
+    // Añade el contenido de la reseña al div
+    reviewDiv.innerHTML = `<strong>${nombre}:</strong> <p>${comentario}</p>`;
+
+    // Inserta el nuevo div en la lista de reseñas
+    document.getElementById(reviewListId).appendChild(reviewDiv);
+
+    // Limpia los campos del formulario
+    document.getElementById('nombre').value = '';
+    document.getElementById('comentario').value = '';
+}
+</script>
 
 <!-- Sección de blog -->
 <section id="blog">
@@ -251,6 +325,10 @@ A través de una narrativa conmovedora, Bryan Cano nos invita a acompañar al hi
     <img src="bdf4d3fe1f9a17136319df951fe9b3e0.jpg" alt="Mi foto">
     <p>Soy Bryan Cano, un apasionado escritor con el propósito de explorar las profundidades de la experiencia humana a través de mis obras. Mis libros buscan inspirar y conectar con los lectores, invitándolos a reflexionar sobre su propia vida.</p>
 </section>
+
+<section id="contacto">
+    <h2>Contacto</h2>
+    <p>Si deseas ponerte en contacto conmigo, puedes utilizar el siguiente formulario:</p>
 
 <section id="contacto">
     <h2>Contacto</h2>
