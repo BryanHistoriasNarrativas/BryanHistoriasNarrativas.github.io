@@ -235,35 +235,11 @@
                 });
             });
     }
-
+    
     // Cargar las reseñas al abrir la página
     document.addEventListener('DOMContentLoaded', cargarReseñas);
 </script>
-
-<script>
-function addReview(event, reviewListId) {
-    event.preventDefault(); // Evita que la página se recargue al enviar el formulario
-
-    // Obtén los valores ingresados en el formulario
-    const nombre = document.getElementById('nombre').value;
-    const comentario = document.getElementById('comentario').value;
-
-    // Crea un nuevo elemento div para la reseña
-    const reviewDiv = document.createElement('div');
-    reviewDiv.classList.add('review-item');
-
-    // Añade el contenido de la reseña al div
-    reviewDiv.innerHTML = `<strong>${nombre}:</strong> <p>${comentario}</p>`;
-
-    // Inserta el nuevo div en la lista de reseñas
-    document.getElementById(reviewListId).appendChild(reviewDiv);
-
-    // Limpia los campos del formulario
-    document.getElementById('nombre').value = '';
-    document.getElementById('comentario').value = '';
-}
-</script>
-
+    
     <!-- Libro 2 -->
     <article>
         <h3>Un Viaje Sin Regreso</h3>
@@ -337,30 +313,6 @@ function addReview(event, reviewListId) {
     document.addEventListener('DOMContentLoaded', cargarReseñas);
 </script>
 
-<script>
-function addReview(event, reviewListId) {
-    event.preventDefault(); // Evita que la página se recargue al enviar el formulario
-
-    // Obtén los valores ingresados en el formulario
-    const nombre = document.getElementById('nombre').value;
-    const comentario = document.getElementById('comentario').value;
-
-    // Crea un nuevo elemento div para la reseña
-    const reviewDiv = document.createElement('div');
-    reviewDiv.classList.add('review-item');
-
-    // Añade el contenido de la reseña al div
-    reviewDiv.innerHTML = `<strong>${nombre}:</strong> <p>${comentario}</p>`;
-
-    // Inserta el nuevo div en la lista de reseñas
-    document.getElementById(reviewListId).appendChild(reviewDiv);
-
-    // Limpia los campos del formulario
-    document.getElementById('nombre').value = '';
-    document.getElementById('comentario').value = '';
-}
-</script>
-
     <!-- Libro 3 -->
     <article>
         <h3>El Susurro de las Almas</h3>
@@ -432,30 +384,6 @@ function addReview(event, reviewListId) {
 
     // Cargar las reseñas al abrir la página
     document.addEventListener('DOMContentLoaded', cargarReseñas);
-</script>
-
-<script>
-function addReview(event, reviewListId) {
-    event.preventDefault(); // Evita que la página se recargue al enviar el formulario
-
-    // Obtén los valores ingresados en el formulario
-    const nombre = document.getElementById('nombre').value;
-    const comentario = document.getElementById('comentario').value;
-
-    // Crea un nuevo elemento div para la reseña
-    const reviewDiv = document.createElement('div');
-    reviewDiv.classList.add('review-item');
-
-    // Añade el contenido de la reseña al div
-    reviewDiv.innerHTML = `<strong>${nombre}:</strong> <p>${comentario}</p>`;
-
-    // Inserta el nuevo div en la lista de reseñas
-    document.getElementById(reviewListId).appendChild(reviewDiv);
-
-    // Limpia los campos del formulario
-    document.getElementById('nombre').value = '';
-    document.getElementById('comentario').value = '';
-}
 </script>
 
 <!-- Sección de blog -->
