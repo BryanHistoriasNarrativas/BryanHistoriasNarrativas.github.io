@@ -178,17 +178,67 @@
 <!-- Sección de reseñas -->
 <article>
     <h4>Reseñas:</h4>
-    <div class="review-list" id="review-list-1">
-        <!-- Aquí se mostrarán las reseñas -->
-    </div>
-    <form class="review-form" onsubmit="addReview(event, 'review-list-1')">
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre" required><br>
-        <label for="comentario">Reseña:</label><br>
-        <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
-        <input type="submit" value="Enviar Reseña">
-    </form>
-</article>
+<div class="review-list" id="review-list-1">
+    <!-- Aquí se mostrarán las reseñas -->
+</div>
+<form class="review-form" onsubmit="enviarReseña(event)">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" required><br>
+    <label for="comentario">Reseña:</label><br>
+    <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
+    <input type="submit" value="Enviar Reseña">
+</form>
+
+<script>
+    function enviarReseña(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById('nombre').value;
+        const comentario = document.getElementById('comentario').value;
+
+        // Enviar los datos al archivo PHP usando AJAX
+        fetch('guardar-reseña.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `nombre=${encodeURIComponent(nombre)}&comentario=${encodeURIComponent(comentario)}`
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            cargarReseñas(); // Recargar las reseñas después de enviar
+            document.getElementById('nombre').value = '';
+            document.getElementById('comentario').value = '';
+        });
+    }
+
+    function cargarReseñas() {
+        fetch('reseñas.txt')
+            .then(response => response.text())
+            .then(data => {
+                const reviewList = document.getElementById('review-list-1');
+                reviewList.innerHTML = '';
+
+                // Cada línea en el archivo representa una reseña
+                const reseñas = data.trim().split('\n');
+                reseñas.forEach(linea => {
+                    const reseña = JSON.parse(linea);
+                    const reseñaHTML = `
+                        <div class="review">
+                            <h5>${reseña.nombre}</h5>
+                            <p>${reseña.comentario}</p>
+                            <small>${reseña.fecha}</small>
+                        </div>
+                    `;
+                    reviewList.innerHTML += reseñaHTML;
+                });
+            });
+    }
+
+    // Cargar las reseñas al abrir la página
+    document.addEventListener('DOMContentLoaded', cargarReseñas);
+</script>
 
 <script>
 function addReview(event, reviewListId) {
@@ -224,18 +274,68 @@ function addReview(event, reviewListId) {
 
      <!-- Sección de reseñas -->
 <article>
-    <h4>Reseñas:</h4>
-    <div class="review-list" id="review-list-1">
-        <!-- Aquí se mostrarán las reseñas -->
-    </div>
-    <form class="review-form" onsubmit="addReview(event, 'review-list-1')">
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre" required><br>
-        <label for="comentario">Reseña:</label><br>
-        <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
-        <input type="submit" value="Enviar Reseña">
-    </form>
-</article>
+   <h4>Reseñas:</h4>
+<div class="review-list" id="review-list-1">
+    <!-- Aquí se mostrarán las reseñas -->
+</div>
+<form class="review-form" onsubmit="enviarReseña(event)">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" required><br>
+    <label for="comentario">Reseña:</label><br>
+    <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
+    <input type="submit" value="Enviar Reseña">
+</form>
+
+<script>
+    function enviarReseña(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById('nombre').value;
+        const comentario = document.getElementById('comentario').value;
+
+        // Enviar los datos al archivo PHP usando AJAX
+        fetch('guardar-reseña.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `nombre=${encodeURIComponent(nombre)}&comentario=${encodeURIComponent(comentario)}`
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            cargarReseñas(); // Recargar las reseñas después de enviar
+            document.getElementById('nombre').value = '';
+            document.getElementById('comentario').value = '';
+        });
+    }
+
+    function cargarReseñas() {
+        fetch('reseñas.txt')
+            .then(response => response.text())
+            .then(data => {
+                const reviewList = document.getElementById('review-list-1');
+                reviewList.innerHTML = '';
+
+                // Cada línea en el archivo representa una reseña
+                const reseñas = data.trim().split('\n');
+                reseñas.forEach(linea => {
+                    const reseña = JSON.parse(linea);
+                    const reseñaHTML = `
+                        <div class="review">
+                            <h5>${reseña.nombre}</h5>
+                            <p>${reseña.comentario}</p>
+                            <small>${reseña.fecha}</small>
+                        </div>
+                    `;
+                    reviewList.innerHTML += reseñaHTML;
+                });
+            });
+    }
+
+    // Cargar las reseñas al abrir la página
+    document.addEventListener('DOMContentLoaded', cargarReseñas);
+</script>
 
 <script>
 function addReview(event, reviewListId) {
@@ -272,17 +372,67 @@ function addReview(event, reviewListId) {
         <!-- Sección de reseñas -->
 <article>
     <h4>Reseñas:</h4>
-    <div class="review-list" id="review-list-1">
-        <!-- Aquí se mostrarán las reseñas -->
-    </div>
-    <form class="review-form" onsubmit="addReview(event, 'review-list-1')">
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre" required><br>
-        <label for="comentario">Reseña:</label><br>
-        <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
-        <input type="submit" value="Enviar Reseña">
-    </form>
-</article>
+<div class="review-list" id="review-list-1">
+    <!-- Aquí se mostrarán las reseñas -->
+</div>
+<form class="review-form" onsubmit="enviarReseña(event)">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" required><br>
+    <label for="comentario">Reseña:</label><br>
+    <textarea id="comentario" name="comentario" rows="3" required></textarea><br>
+    <input type="submit" value="Enviar Reseña">
+</form>
+
+<script>
+    function enviarReseña(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById('nombre').value;
+        const comentario = document.getElementById('comentario').value;
+
+        // Enviar los datos al archivo PHP usando AJAX
+        fetch('guardar-reseña.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `nombre=${encodeURIComponent(nombre)}&comentario=${encodeURIComponent(comentario)}`
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            cargarReseñas(); // Recargar las reseñas después de enviar
+            document.getElementById('nombre').value = '';
+            document.getElementById('comentario').value = '';
+        });
+    }
+
+    function cargarReseñas() {
+        fetch('reseñas.txt')
+            .then(response => response.text())
+            .then(data => {
+                const reviewList = document.getElementById('review-list-1');
+                reviewList.innerHTML = '';
+
+                // Cada línea en el archivo representa una reseña
+                const reseñas = data.trim().split('\n');
+                reseñas.forEach(linea => {
+                    const reseña = JSON.parse(linea);
+                    const reseñaHTML = `
+                        <div class="review">
+                            <h5>${reseña.nombre}</h5>
+                            <p>${reseña.comentario}</p>
+                            <small>${reseña.fecha}</small>
+                        </div>
+                    `;
+                    reviewList.innerHTML += reseñaHTML;
+                });
+            });
+    }
+
+    // Cargar las reseñas al abrir la página
+    document.addEventListener('DOMContentLoaded', cargarReseñas);
+</script>
 
 <script>
 function addReview(event, reviewListId) {
